@@ -1,0 +1,6 @@
+#The following is an invalid procedure, because
+#the returned value is not of type int
+
+procedure int returnTrue() {
+  return true;
+}

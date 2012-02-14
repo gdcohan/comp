@@ -1,0 +1,14 @@
+#This program will not compile.  The variable
+#b is declared in the scope of the if statement,
+#but is used outside that scope.
+#Since variables only exist in the scopes in which
+#they are declared, this is an undeclared identifier error.
+
+procedure int main() {
+  if(false) {
+    int b;
+    b := 2;
+  }
+  endif
+  output(b);
+}

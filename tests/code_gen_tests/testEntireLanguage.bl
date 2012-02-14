@@ -1,0 +1,64 @@
+var int hello; 
+var int goodbye [10];
+var int newNum [10];
+var int newerNum;
+var int recursive;
+
+procedure int proc1( int argOne, int argTwo) { 
+  input ( goodbye [10] );
+  goodbye[2] := 33;
+  input (newerNum); 
+  output ( 66  ) ; # should output 66
+  output (goodbye[2]);  #should output 33
+  goodbye[1] := goodbye[2] / 11; #should output 3
+  hello := 0;
+  while ( hello < 4) {
+    newNum[hello] := hello + 7;
+    output(newNum[hello]); #should output 7, 8, 9, and 10
+    hello := hello + 1; 
+}
+  if ( hello >= newerNum) {
+    newNum [ 8 ] := 6 % 3;
+    goodbye[6] := 2;
+    newNum [goodbye[6]] := 3;
+    output(newNum[2]); #should output 3
+    newerNum := (8 + (3 * (2 / 1)));
+    output(newerNum); #should output 14;
+  } else {
+    output(99); #should output 99
+  }
+  endif
+  if (8 >= 4) {
+    output(6); #will check comparisons
+  }
+  endif
+  if (!(false)) {
+    output(12); #will check boolean logic
+  }
+  endif
+  return 5;
+}
+
+procedure int fibs(int argOne) {
+  int x;
+  if (argOne < 2) {
+    x := argOne;
+    return x;
+  } else {
+    x := fibs(argOne - 1) + fibs(argOne - 2);
+    output(x); #will output a series of numbers, the last of which will be 8
+    return(x);
+  }
+  endif
+}
+
+    
+procedure int main() { 
+ proc1(7, 13);
+ fibs(6);
+}
+
+
+
+
+

@@ -1,0 +1,6 @@
+var int hello [6];
+var int k;
+var int j [7];
+
+procedure int main() {
+}

@@ -1,0 +1,15 @@
+#This code should not compile.
+#The if statement creates an implicit block
+#so the line a := 5 refers to a variable that
+#is out of scope.
+#Implicit and explicit blocks should work the
+#same for scoping, so adding braces around
+#the declaration of a should
+#yield the same result.
+
+procedure int main() {
+  if(false)
+    int a;
+  endif
+  a := 5; #ERROR! ("a" not declared in this scope)
+}

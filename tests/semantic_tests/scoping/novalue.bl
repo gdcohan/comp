@@ -1,0 +1,12 @@
+#The following code is valid.   Your
+#compiler should run contently because a
+#will just take whatever value was in
+#that memory location before if you
+#don't explictly assign it a value.
+
+procedure int main() {
+  int a;
+  int b;
+  b := a * 2;
+  output(b);
+}

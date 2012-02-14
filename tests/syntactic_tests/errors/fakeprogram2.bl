@@ -1,0 +1,21 @@
+
+var char primes[5]; #error here--can't have char
+
+procedure int main(int num) {
+
+  int count;
+  count := 0;
+  if (num < 2)
+    return 0;
+  endif
+  while (count < 5) {
+    if (!(primes[count] == 0) && ((num % primes[count]) == 0))
+      return 0;
+    endif
+    count := count + 1;
+  }
+  return 1;
+}
+
+
+

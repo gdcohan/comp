@@ -1,0 +1,39 @@
+var int primes[5];
+
+#Determines if num is prime
+#returns 1 if it is prime, and 0 otherwise
+procedure int isPrime(int num) {
+  int count;
+  count := 0;
+  if (num < 2)
+    return 0;
+  endif
+  while (count < 5) {
+    if (!(primes[count] == 0) && ((num % primes[count]) == 0))
+      return 0;
+    endif
+    count := count + 1;
+  }
+  return 1;
+}
+
+procedure int main() {
+  int primesGenerated;
+  int count;
+  count := 0;
+  while (count < 5) {
+    primes[count] := 0;
+    count := count + 1;
+  }
+  primesGenerated := 0;
+  count := 2;
+  while (primesGenerated < 5) {
+    if (isPrime(count) == 1) {
+      output(count);
+      primes[primesGenerated] := count;
+      primesGenerated := primesGenerated + 1;
+    }
+    endif
+    count := count + 1;
+  }
+}

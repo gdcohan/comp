@@ -1,0 +1,13 @@
+var int x;
+var int y;
+
+procedure int main() {
+  int a;
+  int b[7];
+  a := 13;
+  b[4] := 21;
+  input(a);
+  input(b[3]);
+  output(b[4]);
+  output(a);
+}

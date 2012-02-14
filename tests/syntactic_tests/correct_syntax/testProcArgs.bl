@@ -1,0 +1,9 @@
+var int hello [6];
+var int k;
+var int j [7];
+
+procedure int main(int num, int numA) {
+  int count;
+  count := 0;
+  sum := 5;
+}

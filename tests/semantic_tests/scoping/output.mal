@@ -1,0 +1,74 @@
+.data
+
+
+.text
+
+main:
+proc_main: 
+	li	$t1, 4
+	sub	$sp, $sp, $t1
+	sub	$sp, $sp, 40
+	sw	$ra, 40($sp)
+	sw	$s0, 36($sp)
+	sw	$s1, 32($sp)
+	sw	$s2, 28($sp)
+	sw	$s3, 24($sp)
+	sw	$s4, 20($sp)
+	sw	$s5, 16($sp)
+	sw	$s6, 12($sp)
+	sw	$s7, 8($sp)
+	sw	$fp, 4($sp)
+
+	move	$fp, $sp
+	li	$t0, 1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	bnez	$t0, label1
+	j	label2
+label1: 
+	j	label0
+label2: 
+label0: 
+	li	$t0, 0
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t6, 4($sp)
+	add	$sp, $sp, 4
+	lw	$fp, 4($sp)
+	lw	$s7, 8($sp)
+	lw	$s6, 12($sp)
+	lw	$s5, 16($sp)
+	lw	$s4, 20($sp)
+	lw	$s3, 24($sp)
+	lw	$s2, 28($sp)
+	lw	$s1, 32($sp)
+	lw	$s0, 36($sp)
+	lw	$ra, 40($sp)
+	add	$sp, $sp, 40
+	li	$t1, 4
+	add	$sp, $sp, $t1
+	sub	$sp, $sp, 4
+	sw	$t6, 4($sp)
+	jr $ra
+
+	lw	$fp, 4($sp)
+	lw	$s7, 8($sp)
+	lw	$s6, 12($sp)
+	lw	$s5, 16($sp)
+	lw	$s4, 20($sp)
+	lw	$s3, 24($sp)
+	lw	$s2, 28($sp)
+	lw	$s1, 32($sp)
+	lw	$s0, 36($sp)
+	lw	$ra, 40($sp)
+	add	$sp, $sp, 40
+	li	$t1, 4
+	add	$sp, $sp, $t1
+	li	$t1, 0
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	jr $ra
+
+

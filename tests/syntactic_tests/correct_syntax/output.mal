@@ -1,0 +1,474 @@
+.data
+
+hello_:	.word 0
+newNum_:	.word	0:10
+goodbye_:	.word	0:10
+newerNum_:	.word 0
+
+.text
+
+proc_proc1: 
+	li	$t1, 164
+	sub	$sp, $sp, $t1
+	sub	$sp, $sp, 40
+	sw	$ra, 40($sp)
+	sw	$s0, 36($sp)
+	sw	$s1, 32($sp)
+	sw	$s2, 28($sp)
+	sw	$s3, 24($sp)
+	sw	$s4, 20($sp)
+	sw	$s5, 16($sp)
+	sw	$s6, 12($sp)
+	sw	$s7, 8($sp)
+	sw	$fp, 4($sp)
+
+	move	$fp, $sp
+	move	$t1, $fp
+	li	$t2, 212
+	add	$t1, $t1, $t2
+	lw	$t0, ($t1)
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	move	$t1, $fp
+	li	$t2, 208
+	add	$t1, $t1, $t2
+	lw	$t0, ($t1)
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	jal	proc_proc1
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$v0, 5
+	syscall
+	li	$t0, 10
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 4
+	mul	$t0, $t0, $t2
+	sw	$v0, goodbye_($t0)
+	li	$t0, 66
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$a0, 4($sp)
+	add	$sp, $sp, 4
+	li	$v0, 1
+	syscall
+	li	$v0, 11
+	li	$a0, 10
+	syscall
+label2: 
+	li	$t0, 6
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 10
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	jal	proc_proc1
+	li	$t0, 4
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 1
+	blt	$t0, $t1, label3
+	li	$t2, 0
+label3: 
+	sub	$sp, $sp, 4
+	sw	$t2, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	bnez	$t0, label1
+	j	label0
+label1: 
+	j	label2
+label0: 
+	li	$t0, 6
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 10
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 1
+	ble	$t0, $t1, label8
+	li	$t2, 0
+label8: 
+	sub	$sp, $sp, 4
+	sw	$t2, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label7
+	li	$t0, 2
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 5
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 1
+	ble	$t0, $t1, label10
+	li	$t2, 0
+label10: 
+	sub	$sp, $sp, 4
+	sw	$t2, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label9
+	li	$t0, 3
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 4
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 1
+	beq	$t0, $t1, label12
+	li	$t2, 0
+label12: 
+	sub	$sp, $sp, 4
+	sw	$t2, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label11
+	li	$t0, 1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 0
+	bnez	$t0, label15
+	j	label14
+label15: 
+	li	$t0, 0
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 0
+	bnez	$t0, label16
+	j	label14
+label16: 
+	li	$t1, 1
+label14: 
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label13
+	li	$t0, 1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label18
+	li	$t0, 0
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label18
+	li	$t1, 0
+label18: 
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label17
+	li	$t0, 4
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 10
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 4
+	mul	$t0, $t0, $t1
+	lw	$t1, goodbye_($t0)
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	li	$t0, 6
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 4
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	sub	$t0, $t0, $t1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	add	$t0, $t0, $t1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 1
+	blt	$t0, $t1, label20
+	li	$t2, 0
+label20: 
+	sub	$sp, $sp, 4
+	sw	$t2, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 0
+	bnez	$t0, label19
+	li	$t1, 1
+label19: 
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label17
+	li	$t1, 0
+label17: 
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label13
+	li	$t1, 0
+label13: 
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label11
+	li	$t1, 0
+label11: 
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label9
+	li	$t1, 0
+label9: 
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 1
+	bnez	$t0, label7
+	li	$t1, 0
+label7: 
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	bnez	$t0, label5
+	j	label6
+label5: 
+	li	$t0, 66
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 6
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 3
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	rem	$t0, $t0, $t1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 4
+	mul	$t0, $t0, $t2
+	sw	$t1, newNum_($t0)
+	li	$t0, 8
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 3
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 2
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	div	$t0, $t0, $t1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	mul	$t0, $t0, $t1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	add	$t0, $t0, $t1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	sw	$t0, newerNum_
+	li	$t0, 5
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t6, 4($sp)
+	add	$sp, $sp, 4
+	lw	$fp, 4($sp)
+	lw	$s7, 8($sp)
+	lw	$s6, 12($sp)
+	lw	$s5, 16($sp)
+	lw	$s4, 20($sp)
+	lw	$s3, 24($sp)
+	lw	$s2, 28($sp)
+	lw	$s1, 32($sp)
+	lw	$s0, 36($sp)
+	lw	$ra, 40($sp)
+	add	$sp, $sp, 40
+	li	$t1, 172
+	add	$sp, $sp, $t1
+	sub	$sp, $sp, 4
+	sw	$t6, 4($sp)
+	jr $ra
+
+	j	label4
+label6: 
+	li	$t0, 5
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	li	$t0, 10
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 1
+	blt	$t0, $t1, label23
+	li	$t2, 0
+label23: 
+	sub	$sp, $sp, 4
+	sw	$t2, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	bnez	$t0, label22
+	j	label21
+label22: 
+	li	$t0, 4
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t6, 4($sp)
+	add	$sp, $sp, 4
+	lw	$fp, 4($sp)
+	lw	$s7, 8($sp)
+	lw	$s6, 12($sp)
+	lw	$s5, 16($sp)
+	lw	$s4, 20($sp)
+	lw	$s3, 24($sp)
+	lw	$s2, 28($sp)
+	lw	$s1, 32($sp)
+	lw	$s0, 36($sp)
+	lw	$ra, 40($sp)
+	add	$sp, $sp, 40
+	li	$t1, 172
+	add	$sp, $sp, $t1
+	sub	$sp, $sp, 4
+	sw	$t6, 4($sp)
+	jr $ra
+
+label21: 
+label4: 
+	lw	$fp, 4($sp)
+	lw	$s7, 8($sp)
+	lw	$s6, 12($sp)
+	lw	$s5, 16($sp)
+	lw	$s4, 20($sp)
+	lw	$s3, 24($sp)
+	lw	$s2, 28($sp)
+	lw	$s1, 32($sp)
+	lw	$s0, 36($sp)
+	lw	$ra, 40($sp)
+	add	$sp, $sp, 40
+	li	$t1, 172
+	add	$sp, $sp, $t1
+	li	$t1, 0
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	jr $ra
+
+main:
+proc_main: 
+	li	$t1, 8
+	sub	$sp, $sp, $t1
+	sub	$sp, $sp, 40
+	sw	$ra, 40($sp)
+	sw	$s0, 36($sp)
+	sw	$s1, 32($sp)
+	sw	$s2, 28($sp)
+	sw	$s3, 24($sp)
+	sw	$s4, 20($sp)
+	sw	$s5, 16($sp)
+	sw	$s6, 12($sp)
+	sw	$s7, 8($sp)
+	sw	$fp, 4($sp)
+
+	move	$fp, $sp
+	lw	$fp, 4($sp)
+	lw	$s7, 8($sp)
+	lw	$s6, 12($sp)
+	lw	$s5, 16($sp)
+	lw	$s4, 20($sp)
+	lw	$s3, 24($sp)
+	lw	$s2, 28($sp)
+	lw	$s1, 32($sp)
+	lw	$s0, 36($sp)
+	lw	$ra, 40($sp)
+	add	$sp, $sp, 40
+	li	$t1, 8
+	add	$sp, $sp, $t1
+	li	$t1, 0
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	jr $ra
+
+

@@ -1,0 +1,11 @@
+var int x;
+var int y[10];
+
+procedure int proc1(int argOne, int argTwo) {
+  x := 7 + argOne + argTwo;
+  return x;
+}
+
+procedure int main() {
+  proc1(6, 10);
+}

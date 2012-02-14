@@ -1,0 +1,20 @@
+
+var int primes[5];
+
+procedure int main(int num) {
+  int count;
+  count := 0;
+  if (num < 2)
+    return 0;
+  endif
+  while (count < 5) {
+    if (!(primes[count] == 0) & ((num % primes[count]) == 0)) #error here--missing one of two &
+      return 0;
+    endif
+    count := count + 1;
+  }
+  return 1;
+}
+
+
+

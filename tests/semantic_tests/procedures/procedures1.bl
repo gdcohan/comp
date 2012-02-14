@@ -1,0 +1,22 @@
+#This is a valid procedure, even though the return
+#statement won't always be reached
+
+#Returns 1 if a > 0 and a > b, and returns 0 otherwise
+
+procedure int isPositiveAndGreaterThan(int a, int b) { #errors if you switch the order of the procedures
+  if ((a > 0) && (a > b))
+    return 1;
+  endif
+}
+
+procedure int returnTrue() { #should remove this to get it to compile
+  return true;
+}
+
+procedure int main() {
+  int a;
+  int b;
+  isPositiveAndGreaterThan(a,b);
+}
+
+

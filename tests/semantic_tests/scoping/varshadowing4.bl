@@ -1,0 +1,13 @@
+#The following code is valid.  The two uses of the variable
+#a are declared in non-overlapping scopes, so there is no
+#semantic error here.
+
+procedure int main() {
+  if (true) {
+    int a;
+  } else {
+    int a;
+  }
+  endif
+  return 0;
+}

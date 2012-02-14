@@ -1,0 +1,175 @@
+.data
+
+
+.text
+
+proc_isPositiveAndGreaterThan: 
+	li	$t1, 0
+	sub	$sp, $sp, $t1
+	sub	$sp, $sp, 40
+	sw	$ra, 40($sp)
+	sw	$s0, 36($sp)
+	sw	$s1, 32($sp)
+	sw	$s2, 28($sp)
+	sw	$s3, 24($sp)
+	sw	$s4, 20($sp)
+	sw	$s5, 16($sp)
+	sw	$s6, 12($sp)
+	sw	$s7, 8($sp)
+	sw	$fp, 4($sp)
+
+	move	$fp, $sp
+	li	$t0, 0
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	move	$t1, $fp
+	li	$t2, 48
+	add	$t1, $t1, $t2
+	lw	$t0, ($t1)
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 1
+	blt	$t0, $t1, label5
+	li	$t2, 0
+label5: 
+	sub	$sp, $sp, 4
+	sw	$t2, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 0
+	bnez	$t0, label3
+	j	label2
+label3: 
+	move	$t1, $fp
+	li	$t2, 44
+	add	$t1, $t1, $t2
+	lw	$t0, ($t1)
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	move	$t1, $fp
+	li	$t2, 48
+	add	$t1, $t1, $t2
+	lw	$t0, ($t1)
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t1, 4($sp)
+	add	$sp, $sp, 4
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t2, 1
+	blt	$t0, $t1, label6
+	li	$t2, 0
+label6: 
+	sub	$sp, $sp, 4
+	sw	$t2, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	li	$t1, 0
+	bnez	$t0, label4
+	j	label2
+label4: 
+	li	$t1, 1
+label2: 
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	bnez	$t0, label1
+	j	label0
+label1: 
+	li	$t0, 1
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	lw	$t6, 4($sp)
+	add	$sp, $sp, 4
+	lw	$fp, 4($sp)
+	lw	$s7, 8($sp)
+	lw	$s6, 12($sp)
+	lw	$s5, 16($sp)
+	lw	$s4, 20($sp)
+	lw	$s3, 24($sp)
+	lw	$s2, 28($sp)
+	lw	$s1, 32($sp)
+	lw	$s0, 36($sp)
+	lw	$ra, 40($sp)
+	add	$sp, $sp, 40
+	li	$t1, 8
+	add	$sp, $sp, $t1
+	sub	$sp, $sp, 4
+	sw	$t6, 4($sp)
+	jr $ra
+
+label0: 
+	lw	$fp, 4($sp)
+	lw	$s7, 8($sp)
+	lw	$s6, 12($sp)
+	lw	$s5, 16($sp)
+	lw	$s4, 20($sp)
+	lw	$s3, 24($sp)
+	lw	$s2, 28($sp)
+	lw	$s1, 32($sp)
+	lw	$s0, 36($sp)
+	lw	$ra, 40($sp)
+	add	$sp, $sp, 40
+	li	$t1, 8
+	add	$sp, $sp, $t1
+	li	$t1, 0
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	jr $ra
+
+main:
+proc_main: 
+	li	$t1, 8
+	sub	$sp, $sp, $t1
+	sub	$sp, $sp, 40
+	sw	$ra, 40($sp)
+	sw	$s0, 36($sp)
+	sw	$s1, 32($sp)
+	sw	$s2, 28($sp)
+	sw	$s3, 24($sp)
+	sw	$s4, 20($sp)
+	sw	$s5, 16($sp)
+	sw	$s6, 12($sp)
+	sw	$s7, 8($sp)
+	sw	$fp, 4($sp)
+
+	move	$fp, $sp
+	move	$t1, $fp
+	li	$t2, 48
+	add	$t1, $t1, $t2
+	lw	$t0, ($t1)
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	move	$t1, $fp
+	li	$t2, 44
+	add	$t1, $t1, $t2
+	lw	$t0, ($t1)
+	sub	$sp, $sp, 4
+	sw	$t0, 4($sp)
+	jal	proc_isPositiveAndGreaterThan
+	lw	$t0, 4($sp)
+	add	$sp, $sp, 4
+	lw	$fp, 4($sp)
+	lw	$s7, 8($sp)
+	lw	$s6, 12($sp)
+	lw	$s5, 16($sp)
+	lw	$s4, 20($sp)
+	lw	$s3, 24($sp)
+	lw	$s2, 28($sp)
+	lw	$s1, 32($sp)
+	lw	$s0, 36($sp)
+	lw	$ra, 40($sp)
+	add	$sp, $sp, 40
+	li	$t1, 8
+	add	$sp, $sp, $t1
+	li	$t1, 0
+	sub	$sp, $sp, 4
+	sw	$t1, 4($sp)
+	jr $ra
+
+

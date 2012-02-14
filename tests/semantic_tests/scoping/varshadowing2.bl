@@ -1,0 +1,12 @@
+#This code is invalid.  The variable a is declared
+#in the outermost scope as a global variable, but
+#it's redefined in an inner scope.
+
+var int a;
+
+procedure int main() {
+  if(true) {
+    int a;
+  }
+  endif
+}

@@ -1,0 +1,12 @@
+#This program should not compile, as a is already
+#declared in the outer scope (created by the main
+#procedure) and then redeclared inside the if
+#statement.
+
+procedure int main() {
+  int a;
+  if(true) {
+    int a;
+  }
+  endif
+}

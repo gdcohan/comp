@@ -1,0 +1,12 @@
+var int hello [6];
+var int k;
+var int j [7];
+
+procedure int main() {
+  int count;
+  count := 0;
+  sum := 5;
+  output ( 5 ) ;
+  input ( aloha ) ;
+  input ( goodbye [5] ) ;
+}

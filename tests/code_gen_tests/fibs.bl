@@ -1,0 +1,30 @@
+var int fibs[20];
+
+procedure int main() {
+  int index;
+  index := 0;
+  while (index < 20) {
+    if (index < 2)
+      fibs[index] := 1;
+    else
+      fibs[index] := fibs[index-2] + fibs[index-1];
+    endif
+    output(fibs[index]);
+    index := index + 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+#The following code is invalid.  The two uses of the variable
+#a are declared in overlapping scopes, so there is a
+#semantic error here.
+
+var int a;
+
+procedure int main() {
+  return 0;
+}
+
+procedure int foo(int a) {
+  return 10;
+}

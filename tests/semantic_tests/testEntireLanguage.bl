@@ -1,0 +1,62 @@
+var int hello; #these two lines test all the possibilits for the list of variables declared
+var int goodbye [10];
+var int newNum [10];
+var int newerNum;
+#error 1 var int hello; 
+#error 2 var int hello [10];
+
+procedure int proc1( int argOne, int argTwo) { # newerNum ) { #error 3 b/c newerNum has already been declared
+  proc1( argOne, argTwo); 
+#error: proc1( argOne, argTwo, argThree); # b/c incorrect number of args
+#error: proc1( argOne, argThree); # b/c argThree hasn't been declared yet
+#error: proc1( argOne, goodbye); # b/c goodbye is an array
+  proc1( argOne, newerNum); #no error even though accessing global variable as arg
+  input ( goodbye [10] );
+  input (newerNum); #recognized variables that have already been declared
+#error:  input ( goodbye ); #b/c must input an int
+  output ( 66  ) ;
+#error:  output (goodbye); #b/c must output an int
+  while (proc1(6, 10) < 4) {
+#error:    while ( 4 ) {} #b/c must have a boolean relation
+    int idTwo [40]; #decl
+    int idThree; #other decl case
+#error:    newerNum := true; #b/c can't assign a boolean to a variable
+#error:    int newNum; #b/c already been declared, even though it was an array
+#error:    int newerNum; #b/c already been declared as int
+  }
+#error:  a := 7; #b/c hasn't been declared yet
+#error:  goodbye := 5; #b/c can't assign an int to an array
+  if ((6 <= 10) || (5 >= 2) || (3 == 4) || (true && false) || (true || false) || (! ((goodbye [10] + ( 6 - 4)) > 4))) {
+#error:    if (6) {} endif #b/c relation must be boolean
+    int d;
+    newNum [ 66 ] := 6 % 3;
+#error:    newNum [4] := true; #b/c must assign integer
+    newNum [goodbye[10]] := 3; #no error
+    newerNum := (8 + (3 * (2 / 1)));
+#error:    hello := newerNum[10]; #b/c can't access an index of a single
+#error:    goodbye := newNum; #b/c can't assign arrays to each other
+#error:    return true; #must return int
+#error:    newerNum := 6 + true; #b/c must do arithmetic on two integers
+    return 5;
+  } else {
+    int d[10]; #test to make sure that I can declare something in if and else
+    if ( 10 > 5 ) {
+      return 4;
+    }
+    endif
+  }
+  endif
+}
+
+#error: procedure int proc1( int argThree) { #b/c can't have two procedures with the same name even if they take a different number of arguments
+# return 0;
+#}
+
+procedure int main() { #error if you get rid of this
+  int array [2];
+}
+
+
+
+
+

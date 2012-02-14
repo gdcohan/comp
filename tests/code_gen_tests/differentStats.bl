@@ -1,0 +1,33 @@
+var int nums[10];
+var int sum;
+var int largest;
+var int smallest;
+
+procedure int procedure1(int argOne) {
+    sum := sum + argOne;
+}
+
+procedure int main() {
+  int myvar;
+  int count;
+  count := 0;
+  sum := 0;
+  while( count < 10 ) {
+    input(nums[count]);
+    sum := sum + nums[count];
+    myvar := procedure1(count);
+    #note that all of these parentheses are needed for the code to compile
+    if( (count == 0) || (largest < nums[count]) )
+      largest := nums[count];
+    endif
+    if( (count == 0) || (smallest > nums[count]) )
+      smallest := nums[count];
+    endif
+    count := count + 1;
+  }
+  output(sum);
+  output(sum/10);
+  output(largest);
+  output(smallest);
+  output(myvar);
+}
